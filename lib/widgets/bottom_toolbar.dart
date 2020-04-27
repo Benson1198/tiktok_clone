@@ -1,33 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:tiktokclone/profile_page.dart';
 
 class BottomToolbar extends StatelessWidget {
   static const double kBottomIconSize = 20.0;
   static const double CreateButtonWidth = 38.0;
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Icon(
-        Icons.home,
-        color: Colors.white,
-        size: kBottomIconSize,
-      ),
-      Icon(
-        Icons.search,
-        color: Colors.white,
-        size: kBottomIconSize,
-      ),
-      customeCreateIcon(),
-      Icon(
-        Icons.chat,
-        color: Colors.white,
-        size: kBottomIconSize,
-      ),
-      Icon(
-        Icons.person,
-        color: Colors.white,
-        size: kBottomIconSize,
-      )
-    ]);
+    return Container(
+      height: 60.0,
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 14.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                    size: kBottomIconSize,
+                  ),
+                  Text(
+                    'Home',
+                    style: TextStyle(fontSize: 10.0),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 14.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.search,
+                    color: Colors.white,
+                    size: kBottomIconSize,
+                  ),
+                  Text(
+                    'Home',
+                    style: TextStyle(fontSize: 10.0),
+                  )
+                ],
+              ),
+            ),
+            customeCreateIcon(),
+            Container(
+              margin: EdgeInsets.only(top: 14.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.chat,
+                    color: Colors.white,
+                    size: kBottomIconSize,
+                  ),
+                  Text(
+                    'Home',
+                    style: TextStyle(fontSize: 10.0),
+                  )
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Profile();
+                }));
+              },
+              child: Container(
+                margin: EdgeInsets.only(top: 14.0),
+                child: Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: kBottomIconSize,
+                    ),
+                    Text(
+                      'Home',
+                      style: TextStyle(fontSize: 10.0),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ]),
+    );
   }
 
   Widget customeCreateIcon() {
